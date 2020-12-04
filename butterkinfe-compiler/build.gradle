@@ -1,0 +1,18 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.auto.service:auto-service:1.0-rc6'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
+    api 'com.squareup:javapoet:1.11.1'
+    implementation project(path: ':butterkinfe-annotations')
+    compile files('libs/tools.jar')
+}
+
+tasks.withType(JavaCompile){
+    options.encoding='UTF-8'
+}
+
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
